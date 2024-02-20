@@ -23,7 +23,7 @@ class UserModel {
   UserModel.fromJson(Map<String, dynamic> json) {
     userUuid = json['userUuid'];
     email = json['username'] ?? json['userEmail'];
-    token = json['token'] ?? Statics.loggedUser?.token;
+    token = json['accessToken'] ?? Statics.loggedUser?.token;
     refreshToken =
         json['refreshToken'] ?? Statics.loggedUser?.refreshToken ?? "";
     userFullName = json['userFullName'];

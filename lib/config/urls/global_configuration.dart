@@ -14,7 +14,7 @@ class GlobalConfiguration {
   static String get baseUrl {
     switch (environnement) {
       case Environnement.preprod:
-        return '';
+        return 'https://backend-boilerplate.ccdev.space/';
 
       case Environnement.prod:
         return '';
@@ -23,7 +23,7 @@ class GlobalConfiguration {
         return 'http://192.168.1.189:62727/';
 
       default:
-        return '';
+        return 'https://backend-boilerplate.ccdev.space/';
     }
   }
 

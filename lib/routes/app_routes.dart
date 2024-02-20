@@ -1,6 +1,6 @@
 class AppRoutes {
   AppRoutes._();
-   //! splash
+  //! splash
   static const String splash = '/splash';
 
   //! Authentication
@@ -19,9 +19,4 @@ class AppRoutes {
   //! settings
   static const String forgetPassword = '/forgetPassword';
   static const String settingsPage = '/() => SettingsPage';
-
-  //! settingsLng
-  static const String settingsLang = '/selectLangPage';
-  static const String conferencePage = '/confeencePage';
-  static const String settingsLangPage = '/() => SelectLangPage';
 }

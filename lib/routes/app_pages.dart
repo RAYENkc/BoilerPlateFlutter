@@ -2,6 +2,7 @@ import 'package:BolilerPlate/features/authentification/screens/mobile/forget_mob
 import 'package:BolilerPlate/features/authentification/screens/mobile/login_mobile_screen.dart';
 import 'package:BolilerPlate/features/authentification/screens/mobile/register_mobile_screen.dart';
 import 'package:BolilerPlate/features/authentification/screens/mobile/splash_page.dart';
+import 'package:BolilerPlate/features/home/screens/mobile/home_mobile_screen.dart';
 import 'package:BolilerPlate/routes/app_bindings.dart';
 import 'package:BolilerPlate/routes/app_routes.dart';
 import 'package:get/get.dart';
@@ -13,37 +14,26 @@ class AppPages {
     GetPage(
       name: AppRoutes.splash,
       page: () => const SplashPage(),
-    //  binding: LoginPageBindings(),
     ),
     GetPage(
       name: AppRoutes.login,
       page: () => const LoginPage(),
       binding: LoginPageBindings(),
     ),
-      GetPage(
+    GetPage(
       name: AppRoutes.register,
       page: () => const RegisterMobile(),
-   //   binding: HomePageBindings(),
+      binding: RegisterPageBindings(),
     ),
     GetPage(
       name: AppRoutes.forgetPassword,
-      page: () =>const ForgetpasswordMobile(),
-   //   binding: SettingPageBindings(),
-    ),
-   /* GetPage(
-      name: AppRoutes.settingsLang,
-      page: () => const SelectLangPage(),
-      binding: SelectLangPageBindings(),
+      page: () => const ForgetpasswordMobile(),
+      //   binding: SettingPageBindings(),
     ),
     GetPage(
-      name: AppRoutes.conferencePage,
-      page: () => const ConferencePage(),
-      binding: ConferencePageBindings(),
+      name: AppRoutes.home,
+      page: () => const HomePage(),
+      binding: HomePageBindings(),
     ),
-     GetPage(
-      name: AppRoutes.changePWD,
-      page: () =>  ChangePWDPage(),
-      binding: ChangePWDPageBindings(),
-    ),*/
   ];
 }

@@ -6,6 +6,7 @@ import 'package:BolilerPlate/config/statics/statics.dart';
 import 'package:BolilerPlate/config/urls/global_configuration.dart';
 import 'package:BolilerPlate/core/helpers/keys_storage.dart';
 import 'package:BolilerPlate/core/helpers/local_storage.dart';
+import 'package:BolilerPlate/core/helpers/principal_functions.dart';
 import 'package:BolilerPlate/core/models/user_model.dart';
 import 'package:BolilerPlate/routes/app_pages.dart';
 import 'package:BolilerPlate/routes/app_routes.dart';
@@ -17,6 +18,8 @@ import 'package:get/get.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   // runApp(App(route: AppRoutes.login));
+  setupEnvironnment(Environnement.dev);
+
   getRoute();
 }
 

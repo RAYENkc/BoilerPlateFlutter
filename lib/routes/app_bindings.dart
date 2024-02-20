@@ -2,6 +2,8 @@
 
 
 import 'package:BolilerPlate/features/authentification/controllers/login_controller.dart';
+import 'package:BolilerPlate/features/authentification/controllers/register_controller.dart';
+import 'package:BolilerPlate/features/home/controllers/Home_controller.dart';
 import 'package:get/get.dart';
 
 class LoginPageBindings extends Bindings {
@@ -11,37 +13,19 @@ class LoginPageBindings extends Bindings {
   }
 }
 
-/*class HomePageBindings extends Bindings {
+class HomePageBindings extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => HomeController());
-     Get.isRegistered<CommunicationController>()
+   /*  Get.isRegistered<CommunicationController>()
         ? Get.find<CommunicationController>()
-        : Get.lazyPut(() =>CommunicationController());
+        : Get.lazyPut(() =>CommunicationController());*/
   }
 }
 
-class SettingPageBindings extends Bindings {
+class RegisterPageBindings extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => SettingsController());
+    Get.lazyPut(() => RegisterController());
   }
 }
-class SelectLangPageBindings extends Bindings {
-  @override
-  void dependencies() {
-    Get.lazyPut(() => SelectLangController());
-  }
-}
-class ConferencePageBindings extends Bindings {
-  @override
-  void dependencies() {
-    Get.lazyPut(() => ConferenceController());
-  }
-}
-class ChangePWDPageBindings extends Bindings {
-  @override
-  void dependencies() {
-    Get.lazyPut(() => ChangePWDController());
-  }
-}*/

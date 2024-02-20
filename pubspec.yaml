@@ -40,6 +40,10 @@ dependencies:
   flutter_easyloading: ^3.0.5
   localstorage: ^4.0.0+1
   flutter_svg: ^2.0.9
+  dio: ^5.4.1
+  # Flutter plugin for Firebase Cloud Messaging, a cross-platform messaging solution that lets you reliably deliver messages on Android and iOS.
+  firebase_messaging: ^14.1.1
+
 
 dev_dependencies:
   flutter_test:
