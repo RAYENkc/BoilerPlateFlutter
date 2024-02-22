@@ -1,6 +1,3 @@
-
-
-
 import 'dart:convert';
 
 import 'package:BolilerPlate/core/helpers/base_controller.dart';
@@ -27,30 +24,27 @@ class LoginController extends BaseController {
   final FocusNode passwordFocusNode = FocusNode();
 
   void signIn() async {
+    _service
+        .signIn(
+      email: emailTEC.text,
+      password: passwordTEC.text,
+    )
+        .then(
+      (bool success) async {
+        if (success) {
+          final LocalStorageController localStorageController = Get.find();
 
-      _service
-          .signIn(
-              email: emailTEC.text,
-              password: passwordTEC.text,
-              )
-          .then(
-        (bool success) async {
-          if (success) {
-         //   final LocalStorageController localStorageController = Get.find();
-
-         /*   await localStorageController.saveObjectToStorage(AppConstants.USER,
-                json.encode(Statics.loggedUser!.toMap()).toString());*/
-            Get.offAllNamed(AppRoutes.home);
-          } else {
-            showCustomToast(
-              toastType: ToastTypes.error,
-              contentText:
-                  'The connection failed, check your settings',
-              onTheTop: false,
-            );
-          }
-        },
-      );
-    }
-  
+          await localStorageController.saveObjectToStorage(AppConstants.USER,
+              json.encode(Statics.loggedUser!.toMap()).toString());
+          Get.offAllNamed(AppRoutes.home);
+        } else {
+          showCustomToast(
+            toastType: ToastTypes.error,
+            contentText: 'The connection failed, check your settings',
+            onTheTop: false,
+          );
+        }
+      },
+    );
+  }
 }

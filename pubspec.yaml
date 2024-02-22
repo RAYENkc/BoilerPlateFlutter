@@ -43,7 +43,12 @@ dependencies:
   dio: ^5.4.1
   # Flutter plugin for Firebase Cloud Messaging, a cross-platform messaging solution that lets you reliably deliver messages on Android and iOS.
   firebase_messaging: ^14.1.1
+  salomon_bottom_bar: ^3.3.2
 
+  # Firebase Packages
+  firebase_core: ^2.14.0
+  #Custom local and push notifications
+  awesome_notifications: ^0.9.2
 
 dev_dependencies:
   flutter_test:
@@ -70,8 +75,6 @@ flutter:
   assets:
     - assets/fonts/
     - assets/images/
-
-
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

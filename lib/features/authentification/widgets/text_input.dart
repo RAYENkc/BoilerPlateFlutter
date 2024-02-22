@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-Widget textInputAuth({controller, hint, icon, onChanged}) {
+Widget textInputAuth(
+    {controller, hint, icon, onChanged, obscureText, suffixIcon, keyboardType}) {
   return Container(
     margin: const EdgeInsets.only(top: 10),
     decoration: const BoxDecoration(
@@ -11,10 +12,13 @@ Widget textInputAuth({controller, hint, icon, onChanged}) {
     child: TextFormField(
       controller: controller,
       onChanged: onChanged,
+      obscureText: obscureText ?? false,
+      keyboardType: keyboardType ??  TextInputType.multiline,
       decoration: InputDecoration(
         border: InputBorder.none,
         hintText: hint,
         prefixIcon: Icon(icon),
+        suffixIcon: suffixIcon,
       ),
     ),
   );

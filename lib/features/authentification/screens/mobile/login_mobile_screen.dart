@@ -7,7 +7,6 @@ import 'package:BolilerPlate/routes/app_routes.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../config/app_constant.dart';
 import '../../../../core/helpers/requests_interceptor.dart';
 import '../../controllers/login_controller.dart';
@@ -43,10 +42,26 @@ class _LoginPageState extends State<LoginPage> {
                       textInputAuth(
                           controller: controller.emailTEC,
                           hint: "Email ",
+                          keyboardType: TextInputType.emailAddress,
                           icon: Icons.email),
                       textInputAuth(
                           controller: controller.passwordTEC,
                           hint: "Password",
+                          obscureText: controller.passwordIsHidden,
+                          keyboardType: TextInputType.text,
+                          suffixIcon: IconButton(
+                            onPressed: () {
+                              setState(() {
+                                controller.passwordIsHidden =
+                                    !controller.passwordIsHidden;
+                              });
+                            },
+                            icon: Icon(
+                              controller.passwordIsHidden
+                                  ? Icons.visibility
+                                  : Icons.visibility_off,
+                            ),
+                          ),
                           icon: Icons.vpn_key),
                       GestureDetector(
                         onTap: () {

@@ -8,7 +8,6 @@ import 'package:BolilerPlate/features/authentification/widgets/text_input.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../routes/app_routes.dart';
 import '../../controllers/register_controller.dart';
 
@@ -37,16 +36,25 @@ class _RegisterMobileState extends State<RegisterMobile> {
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: <Widget>[
-                    textInputAuth(hint: "Fullname", icon: Icons.person),
+                    textInputAuth(
+                        hint: "Fullname",
+                        icon: Icons.person,
+                        keyboardType: TextInputType.text),
                     textInputAuth(
                         controller: _controllerRegister.emailTEC,
+                        keyboardType: TextInputType.emailAddress,
                         hint: "Email",
                         icon: Icons.email),
-                    textInputAuth(hint: "Phone Number", icon: Icons.call),
+                    textInputAuth(
+                      hint: "Phone Number",
+                      icon: Icons.call,
+                      keyboardType: TextInputType.number,
+                    ),
                     textInputAuth(
                       controller: _controllerRegister.passwordTEC,
                       hint: "Password",
                       icon: Icons.vpn_key,
+                      keyboardType: TextInputType.text,
                       onChanged: (value) {
                         setState(() {
                           // Check if password is at least 8 characters long
@@ -77,7 +85,7 @@ class _RegisterMobileState extends State<RegisterMobile> {
                                   await _controllerRegister.register();
 
                               if (registrationSuccess) {
-                              DioRequestsInterceptor.hideLoader();
+                                DioRequestsInterceptor.hideLoader();
                                 Get.offNamed(AppRoutes.home);
                               }
                             } else {

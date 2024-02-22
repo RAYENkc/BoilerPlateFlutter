@@ -8,18 +8,21 @@ import 'package:BolilerPlate/core/helpers/keys_storage.dart';
 import 'package:BolilerPlate/core/helpers/local_storage.dart';
 import 'package:BolilerPlate/core/helpers/principal_functions.dart';
 import 'package:BolilerPlate/core/models/user_model.dart';
+import 'package:BolilerPlate/core/services/firebase_api.dart';
 import 'package:BolilerPlate/routes/app_pages.dart';
 import 'package:BolilerPlate/routes/app_routes.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // runApp(App(route: AppRoutes.login));
+  await Firebase.initializeApp();
+  await FirebaseApi().initNotifications();
+  await FirebaseApi().initAwesomeNotification();
   setupEnvironnment(Environnement.dev);
-
   getRoute();
 }
 
@@ -31,26 +34,15 @@ Future<void> getRoute() async {
   if (data != null) {
     Map<String, dynamic> j = jsonDecode(data);
     Statics.loggedUser = UserModel.fromJson(j);
-  }
-
- /* if (Statics.loggedUser?.token != null) {
-    // Get.lazyPut(() => LocalAuthController());
-    // LocalAuthController localAuthController = Get.find();
-    // bool isAuthenticated = await localAuthController.authenticateWithFace();
-    // if (isAuthenticated) {
     runApp(App(route: AppRoutes.home));
-    // }
   } else {
     runApp(App(route: AppRoutes.login));
-  }*/
-
-   runApp(App(route: AppRoutes.splash));
+  }
 }
 
 class App extends StatelessWidget {
   String? route;
   App({super.key, this.route});
-
   static String name = 'BolilerPlate';
 
   // This widget is the root of your application.
