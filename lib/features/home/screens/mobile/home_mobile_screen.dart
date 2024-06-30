@@ -1,4 +1,5 @@
 import 'package:BolilerPlate/config/app_colors.dart';
+import 'package:BolilerPlate/features/home/screens/mobile/dash_mobile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import '../../../../core/widgets/bottom_navigation/salomonBottomBar.dart';
@@ -23,14 +24,13 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: CustomAppBar(
           scaffoldKey: _scaffoldKey,
           menuItems: _menuItems,
           title: "Boiler Plate"),
       body: Center(
-        child: _navBarItems[_selectedIndex].title,
+        child: _getPage(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBarWidget(
         selectedIndex: _selectedIndex,
@@ -42,6 +42,21 @@ class _HomePageState extends State<HomePage> {
       ),
       backgroundColor: AppColors.white,
     );
+  }
+}
+
+Widget _getPage(int index) {
+  switch (index) {
+    case 0:
+      return DashMobileScreen();
+    case 1:
+      return Text("Like page");
+    case 2:
+      return Text("Search page");
+    case 3:
+      return Text("Profile page");
+    default:
+      return Container();
   }
 }
 
